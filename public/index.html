@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat App</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="funciones_socket.js"></script>
+    <script>
+        function pulsar(e) {
+            if (e.keyCode === 13 && !e.shiftKey) {
+                e.preventDefault();
+                $("#send_msg").click();
+                document.getElementById("msg_text").value = "";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>socket.io</h1>
+
+    <!-- <form accept-charset="utf-8" id='login_form'>
+        <input type="text" name='username' id='username' placeholder='Username' value=''>
+        <input type='button' name='' value='Entrar' onclick=login()>
+    </form> -->
+    <div id='register_msg'></div>
+    <hr />
+    <div id='msg_div'>
+
+    </div>
+    <div>
+        <textarea id='msg_text' autofocus placeholder="Mensaje"
+            onkeypress="pulsar(event)"></textarea>
+        <button id='send_msg' onclick="sendMsg()">Enviar</button>
+    </div>
+
+</body>
+
+</html>
